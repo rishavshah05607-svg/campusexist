@@ -10,33 +10,128 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AuthRouteImport } from './routes/auth'
+import { Route as BelongingsRouteImport } from './routes/belongings'
+import { Route as BorrowingRouteImport } from './routes/borrowing'
+import { Route as HelpRouteImport } from './routes/help'
+import { Route as LostFoundRouteImport } from './routes/lost-found'
+import { Route as MarketplaceRouteImport } from './routes/marketplace'
+import { Route as ProfileRouteImport } from './routes/profile'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BelongingsRoute = BelongingsRouteImport.update({
+  id: '/belongings',
+  path: '/belongings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BorrowingRoute = BorrowingRouteImport.update({
+  id: '/borrowing',
+  path: '/borrowing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HelpRoute = HelpRouteImport.update({
+  id: '/help',
+  path: '/help',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LostFoundRoute = LostFoundRouteImport.update({
+  id: '/lost-found',
+  path: '/lost-found',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MarketplaceRoute = MarketplaceRouteImport.update({
+  id: '/marketplace',
+  path: '/marketplace',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfileRoute = ProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/belongings': typeof BelongingsRoute
+  '/borrowing': typeof BorrowingRoute
+  '/help': typeof HelpRoute
+  '/lost-found': typeof LostFoundRoute
+  '/marketplace': typeof MarketplaceRoute
+  '/profile': typeof ProfileRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/belongings': typeof BelongingsRoute
+  '/borrowing': typeof BorrowingRoute
+  '/help': typeof HelpRoute
+  '/lost-found': typeof LostFoundRoute
+  '/marketplace': typeof MarketplaceRoute
+  '/profile': typeof ProfileRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/belongings': typeof BelongingsRoute
+  '/borrowing': typeof BorrowingRoute
+  '/help': typeof HelpRoute
+  '/lost-found': typeof LostFoundRoute
+  '/marketplace': typeof MarketplaceRoute
+  '/profile': typeof ProfileRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/auth'
+    | '/belongings'
+    | '/borrowing'
+    | '/help'
+    | '/lost-found'
+    | '/marketplace'
+    | '/profile'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/auth'
+    | '/belongings'
+    | '/borrowing'
+    | '/help'
+    | '/lost-found'
+    | '/marketplace'
+    | '/profile'
+  id:
+    | '__root__'
+    | '/'
+    | '/auth'
+    | '/belongings'
+    | '/borrowing'
+    | '/help'
+    | '/lost-found'
+    | '/marketplace'
+    | '/profile'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthRoute: typeof AuthRoute
+  BelongingsRoute: typeof BelongingsRoute
+  BorrowingRoute: typeof BorrowingRoute
+  HelpRoute: typeof HelpRoute
+  LostFoundRoute: typeof LostFoundRoute
+  MarketplaceRoute: typeof MarketplaceRoute
+  ProfileRoute: typeof ProfileRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +143,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/belongings': {
+      id: '/belongings'
+      path: '/belongings'
+      fullPath: '/belongings'
+      preLoaderRoute: typeof BelongingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/borrowing': {
+      id: '/borrowing'
+      path: '/borrowing'
+      fullPath: '/borrowing'
+      preLoaderRoute: typeof BorrowingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/help': {
+      id: '/help'
+      path: '/help'
+      fullPath: '/help'
+      preLoaderRoute: typeof HelpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lost-found': {
+      id: '/lost-found'
+      path: '/lost-found'
+      fullPath: '/lost-found'
+      preLoaderRoute: typeof LostFoundRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/marketplace': {
+      id: '/marketplace'
+      path: '/marketplace'
+      fullPath: '/marketplace'
+      preLoaderRoute: typeof MarketplaceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profile': {
+      id: '/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof ProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthRoute: AuthRoute,
+  BelongingsRoute: BelongingsRoute,
+  BorrowingRoute: BorrowingRoute,
+  HelpRoute: HelpRoute,
+  LostFoundRoute: LostFoundRoute,
+  MarketplaceRoute: MarketplaceRoute,
+  ProfileRoute: ProfileRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
