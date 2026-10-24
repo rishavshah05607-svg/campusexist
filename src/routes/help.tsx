@@ -14,7 +14,7 @@ export const Route = createFileRoute("/help")({
   component: Help,
 });
 
-const TIPS = [
+const TIPS: [string, string][] = [
   ["Meet in public campus spots", "Exchange items in the library, canteen or near security desks — never in isolated places."],
   ["Inspect before you pay", "Check the item works before handing over money. Pay in person or via UPI only after inspection."],
   ["Never share passwords or OTPs", "CampusExist will never ask for your OTP, bank details or ID card photo."],
